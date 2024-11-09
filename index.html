@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <link href="css/main.css" rel="stylesheet">
+    <title>Snaky Earbuds</title>
+</head>
+
+<body>
+ <!-- Header Section -->
+ <header>
+    <section class="grid-con">
+        <h1 class="col-span-full">Snaky Earbuds</h1>
+        <p class="col-span-full">Supreme Quality with a Stunning Snake Design</p>
+    </section>
+</header>
+
+<!-- 3D Interactive Image Section with Hotspots -->
+<section id="interactive-3d" class="grid-con">
+    <h1 class="hidden">3D Design with Hotspots</h1>
+    <h2 class="col-span-full">3D Interactive View</h2>
+    <p class="col-span-full">Explore Snaky earbuds in 3D. Hover over the hotspots to learn more about each feature and how it enhances your audio experience.</p>
+</section>
+<model-viewer id="model" src="./media/Snaky.gltf" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="./images/poster.webp" shadow-intensity="1" exposure="1.15">
+    <button class="Hotspot" slot="hotspot-1" data-position="1.465314467548765m 5.678670274307827m 2.3235798924641697m" data-normal="0.9923820979402624m 0.10334040269670572m 0.06707110300394797m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation"></div>
+    </button>
+    <button class="Hotspot" slot="hotspot-2" data-position="0.50694986436288m 6.606676804650684m -2.694496893024332m" data-normal="-0.9645993130758191m 0.2215228680045951m 0.14309362027944006m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation"></div>
+    </button>
+    <button class="Hotspot" slot="hotspot-3" data-position="2.6519872259917143m 6.816749508596286m -3.9298400676841805m" data-normal="0.8217918422573761m -0.016587754949859455m -0.5695463233003542m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation"></div>
+    </button>
+    <button class="Hotspot" slot="hotspot-4" data-position="3.505731827262392m 1.343782453776492m 0.005637459511299792m" data-normal="0.7098617857481335m -0.6195902361289612m -0.3349689305415194m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation"></div>
+    </button>
+    <button class="Hotspot" slot="hotspot-5" data-position="-0.37507403519021576m 1.2242245697483103m -1.3311048985079856m" data-normal="-0.9251198787020026m 0.36877003999299707m 0.09034305526135082m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation"></div>
+    </button>
+    <button class="Hotspot" slot="hotspot-6" data-position="-0.6511873362793938m 3.7242496772994103m 1.4032732729119597m" data-normal="-0.3540670990344241m -0.8958157907515947m -0.26860855984395315m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation"></div>
+    </button>
+    <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+    </div>
+    <button slot="ar-button" id="ar-button">
+        View in your space
+    </button>
+    <div id="ar-prompt">
+        <img src="./images/ar_hand_prompt.png">
+    </div>
+</model-viewer> 
+<!-- Hero Section with X-ray Vision Image -->
+<section id="xray-vision">
+    <h1 class="hidden">X-ray Vision</h1>
+    <h2>X-Ray Vision</h2>
+    <p>Discover the inner components and advanced technology within Snaky earbuds. The X-ray view showcases the superior build quality and the precision engineering that powers these extraordinary earbuds.</p>
+    <img src="path/to/xray-image.jpg" alt="X-ray Vision of Snaky Earbuds">
+</section>
+
+<!-- Product Description Section -->
+<section id="product-description">
+    <h2>Why Choose Snaky Earbuds?</h2>
+    <p>Snaky earbuds combine cutting-edge technology with a unique snake-inspired design. Experience supreme audio quality, ergonomic comfort, and a stylish look that sets you apart.</p>
+    <ul>
+        <li>High-definition sound with noise cancellation</li>
+        <li>Comfortable fit with soft ear tips</li>
+        <li>Long-lasting battery life for all-day use</li>
+    </ul>
+</section>
+
+<footer>
+    <p>&copy; 2024 Snaky Earbuds. All rights reserved.</p>
+</footer>   
+
+<script src="js/main.js"></script>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+</body>
+</html>

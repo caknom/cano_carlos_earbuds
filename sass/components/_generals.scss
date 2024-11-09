@@ -1,0 +1,33 @@
+@use '../abstracts' as a;
+
+// Reset
+
+img, embed, object, video, picture {
+    max-width: 100%; 
+}
+ 
+html {
+    box-sizing: border-box; 
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    border: 1px solid;
+}
+
+.hidden {
+    display: none;
+}
+
+.box {
+    background-color: powderblue;
+    color: rgb(27, 27, 27);
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom:10px;
+    margin-top: 10px;
+}
+
+// Generals
+
