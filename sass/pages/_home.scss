@@ -3,3 +3,36 @@
 #title {
     font-size: a.$big-font;
 }
+
+#interactive-3d, #xray-vision, #product-description {
+    font-size: a.$big-font;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+}
+
+#interactive-3d h2, #xray-vision h2, #product-description h2 {
+margin-top: 160px;
+}
+
+#interactive-3d p, #xray-vision p, #product-description p {
+    margin: 50px;
+    margin-bottom: 70px;
+}
+
+#product-description li {
+    width: auto;
+    text-align: left;
+
+}
+
+#product-description ul {
+    margin: 0 auto;
+    margin-bottom: 200px;
+}
+
+// * {
+//     border: 1px solid;
+// }

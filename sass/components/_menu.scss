@@ -1,0 +1,23 @@
+* {
+    // border: 1px solid;
+}
+
+#logo-snaky {
+    max-width: 180px;
+    height: 120px;
+}
+
+header section {
+    margin: 60px auto 100px;
+}
+
+#logo-snaky {
+    margin: 0 auto;
+}
+
+.menu-con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
