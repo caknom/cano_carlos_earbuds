@@ -3,9 +3,9 @@
 model-viewer {
   width: auto;
   max-width: 900px;
-  height: 750px;
+  height: 700px;
   background-color: a.$color-white;
-  margin: auto auto;
+  margin: 0 auto;
   padding: 60px;
 }
 
@@ -14,63 +14,93 @@ model-viewer {
 .Hotspot {
   background: url(../images/ar-icon.svg) no-repeat center;
   border: 0;
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
+  transition: all .3s ease-in-out;
 }
 
 .Hotspot:not([data-visible]) {
-  // background: transparent;
-  // border: 4px solid #fff;
-  // box-shadow: none;
-  // height: 32px;
-  // pointer-events: none;
-  // width: 32px;
   opacity: 0;
-}
-
-.Hotspot:focus {
-border: 4px solid a.$color-green;
-height: 32px;
-outline: none;
-width: 32px;
+  pointer-events: none;
 }
 
 .HotspotAnnotation {
-visibility: hidden;
-
-background: a.$color-black;
-border-radius: 4px;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-color: rgba(0, 0, 0, 0.8);
-display: block;
-left: calc(100% + 1em);
-max-width: 128px;
-overflow-wrap: break-word;
-padding: 0.5em 1em;
-position: absolute;
-top: 50%;
-width: max-content;
+  visibility: hidden;
+  background: a.$color-black;
+  border-radius: 4px;
+  display: block;
+  left: calc(90% + 1em);
+  max-width: 200px;
+  overflow-wrap: break-word;
+  padding: 0.5em 1em;
+  position: absolute;
+  top: -100%;
+  height: 280px;
 }
 
 .HotspotAnnotation h2 {
-color: a.$color-green;
-font-size: 18px;
-margin-bottom: 5px;
+  color: a.$color-green;
+  font-size: 18px;
+  margin-bottom: -45px;
+  font-size: a.$small-font;
+  width: 180px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .HotspotAnnotation p {
-color: a.$color-white;
-line-height: 22px;
-font-weight: 300;
+  color: a.$color-white;
+  line-height: 20px;
+  font-weight: 300;
+  font-size: a.$small-font;
+  width: 180px;
+  position: absolute;
+  left: -25px;
 }
 
-//   custom loading bar
+.HotspotAnnotation img {
+  max-width: 200px;
+  margin-bottom: -140px;
+}
 
 model-viewer::part(default-progress-bar) {
-height: 30px;
-background-color: a.$color-green;
+  height: 30px;
+  background-color: a.$color-green;
 }
 
 #ar-model {
   margin-top: 20px;
+}
+
+@keyframes circle {
+  from {
+    transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg);
+  }
+}
+@keyframes elongate {
+  from {
+    transform: translateX(100px);
+  }
+  to {
+    transform: translateX(-100px);
+  }
+}
+model-viewer > #ar-prompt {
+  position: absolute;
+  left: 50%;
+  bottom: 60px;
+  animation: elongate 2s infinite ease-in-out alternate;
+  display: none;
+}
+
+model-viewer[ar-status=session-started] > #ar-prompt {
+  display: block;
+}
+
+model-viewer > #ar-prompt > img {
+  animation: circle 4s linear infinite;
 }

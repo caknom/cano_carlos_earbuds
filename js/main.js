@@ -43,81 +43,81 @@
 })();
 
 (() => {
-  const model = document.querySelector("#model");
   const hotspots = document.querySelectorAll(".Hotspot");
 
   const infoBoxes = [
     {
       title: "Soft Rubber",
       text: "Noise-canceling microphones make the sound better",
-      image: "images/ar-photo-01.png"
+      image: "images/ar-photo-01.png",
+      alt: "image of the soft rubber"
     },
     {
-      title: "Gel Tipped Ear Piece",
-      text: "The most comfortable ear piece ever",
-      image: "images/ar-photo-02.png"
+      title: "Super Bass",
+      text: "The most powerfull bass component",
+      image: "images/ar-photo-02.png",
+      alt: "image of the bass internal piece"
     },
     {
       title: "LED Lights",
       text: "Adds an elegant touch to your experience",
-      image: "images/ar-photo-04.png"
+      image: "images/ar-photo-04.png",
+      alt: "image of a green led bulb light"
     },
     {
       title: "Noise Cancelling Microphone",
       text: "Noise-canceling microphones make the sound better",
-      image: "images/ar-photo-03.png"
+      image: "images/ar-photo-03.png",
+      alt: "image of a mic silence"
     },
     {
       title: "Fast Charging Ports",
       text: "Quick and efficient charging for uninterrupted listening",
-      image: "images/ar-photo-05.png"
+      image: "images/ar-photo-05.png",
+      alt: "image of a fast charge cord"
     },
     {
       title: "Aluminum Body",
       text: "Durable and lightweight aluminum build",
-      image: "images/ar-photo-06.png"
+      image: "images/ar-photo-06.png",
+      alt: "image of a black aluminum texture"
     }
   ];
 
-  function loadInfo() {
+  function loadInfoBoxes() {
+
     infoBoxes.forEach((infoBox, index) => {
+      let selected = document.querySelector(`#hotspot-${index + 1}`);
+
+      const titleElement = document.createElement('h2');
+      titleElement.textContent = infoBox.title;
+
+      const textElement = document.createElement('p');
+      textElement.textContent = infoBox.text;
       
-      let selected = document.querySelector(`button[slot="hotspot-${index + 1}"]`);
-      let annotationDiv = selected ? selected.querySelector(".HotspotAnnotation") : null;
+      const imgElement = document.createElement('img');
+      imgElement.src = infoBox.image;
+      imgElement.alt = infoBox.alt;
 
-      if (annotationDiv) {
-        let image = document.createElement("img");
-        image.src = infoBox.image;
-        image.alt = infoBox.title;
-        
-        let title = document.createElement("h2");
-        title.textContent = infoBox.title;
-
-        let description = document.createElement("p");
-        description.textContent = infoBox.text;
-
-        annotationDiv.appendChild(title);
-        annotationDiv.appendChild(description);
-        annotationDiv.appendChild(image);
-      }
+      selected.appendChild(imgElement);
+      selected.appendChild(titleElement);
+      selected.appendChild(textElement);
     });
   }
 
-  loadInfo();
+  loadInfoBoxes();
 
   function showInfo() {
-    let selected = this.querySelector("div.HotspotAnnotation");
-    if (selected) {
-      gsap.to(selected, 1, { autoAlpha: 1 });
-    }
+    let selected = document.querySelector(`#${this.slot}`);
+    gsap.to(selected, 1, { autoAlpha: 1 });
   }
 
   function hideInfo() {
-    let selected = this.querySelector("div.HotspotAnnotation");
-    if (selected) {
-      gsap.to(selected, 1, { autoAlpha: 0 });
-    }
+    let selected = document.querySelector(`#${this.slot}`);
+    gsap.to(selected, 1, { autoAlpha: 0 });
   }
+
+  //Event listeners
 
   hotspots.forEach(function (hotspot) {
     hotspot.addEventListener("mouseenter", showInfo);
